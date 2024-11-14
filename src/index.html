@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Trainer App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div>
+      <h1>Personal Trainer Client Manager</h1>
+      <input type="text" id="clientID" placeholder="Client ID" />
+      <input type="text" id="name" placeholder="Name" />
+      <input type="date" id="DOB" placeholder="Date of Birth" />
+      <select id="gender">
+        <option value="Female">Female</option>
+        <option value="Male">Male</option>
+        <option value="Unspecified">Unspecified</option>
+      </select>
+      <!-- Add more input fields for the rest of the data -->
+      <button onclick="addClientFromForm()">Add Client</button>
+    </div>
+    <div id="app"></div>
+    <script src="../dist/app.js"></script>
+  </body>
+</html>
