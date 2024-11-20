@@ -1,18 +1,18 @@
 <div *ngIf="client">
-    <h2>Edit Client: {{ client.name }}</h2>
-  
-    <form #clientForm="ngForm" (ngSubmit)="saveClient(clientForm)">
-      <!-- Display Client ID and Name (read-only) -->
-      <label for="clientID">Client ID:</label>
-      <input id="clientID" [value]="client.clientID" readonly />
-  
-      <label for="name">Name:</label>
-      <input id="name" [(ngModel)]="client.name" name="name" readonly />
-  
-      <!-- Display DOB (read-only) -->
-      <label for="DOB">Date of Birth:</label>
-      <input type="date" id="DOB" [value]="client.DOB" readonly />
-  
+  <h2>Edit Client: {{ client.name }}</h2>
+
+  <form #clientForm="ngForm" (ngSubmit)="saveClient(clientForm)">
+    <!-- Display Client ID and Name (read-only) -->
+    <label for="clientID">Client ID:</label>
+    <input id="clientID" [value]="client.clientID" readonly />
+
+    <label for="name">Name:</label>
+    <input id="name" [(ngModel)]="client.name" name="name" readonly />
+
+    <!-- Display DOB (read-only) -->
+    <label for="DOB">Date of Birth:</label>
+    <input type="date" id="DOB" [(ngModel)]="client.DOB" name="DOB" readonly />
+
     <!-- Fitness Program (editable) -->
     <label for="fitnessProgram">Fitness Program:</label>
     <select
@@ -29,59 +29,59 @@
       <option value="contest preparation">Contest Preparation</option>
       <option value="overall fitness">Overall Fitness</option>
     </select>
-  
-      <!-- Contact Info (editable) -->
-      <label for="contactInfo">Contact Info:</label>
-      <input
-        type="text"
-        id="contactInfo"
-        [(ngModel)]="client.contactInfo"
-        name="contactInfo"
-        required
-      />
-  
-      <!-- Ending Date (editable) -->
-      <label for="endingDate">Ending Date:</label>
-      <input
-        type="date"
-        id="endingDate"
-        [(ngModel)]="client.endingDate"
-        name="endingDate"
-        required
-      />
-  
-      <!-- VIP option (editable) -->
-      <label for="isVIP">VIP:</label>
-      <input
-        type="checkbox"
-        id="isVIP"
-        [(ngModel)]="client.isVIP"
-        name="isVIP"
-      />
-  
-      <!-- Special Health Notes (editable) -->
-      <label for="specialHealthNotes">Special Health Notes:</label>
-      <textarea
-        id="specialHealthNotes"
-        [(ngModel)]="client.specialHealthNotes"
-        name="specialHealthNotes"
-      ></textarea>
-  
-      <button type="submit">Save</button>
-    </form>
-  </div>
+
+    <!-- Contact Info (editable) -->
+    <label for="contactInfo">Email:</label>
+    <input
+      type="email"
+      id="contactInfo"
+      [(ngModel)]="client.contactInfo"
+      name="contactInfo"
+      required
+      email
+      #contactInfo="ngModel"
+    />
+    <div *ngIf="contactInfo.invalid && contactInfo.touched">
+      <small *ngIf="contactInfo.errors?.['required']">Email is required.</small>
+      <small *ngIf="contactInfo.errors?.['email']">Please enter a valid email address.</small>
+    </div>
+
+    <!-- Ending Date (editable) -->
+    <label for="endingDate">Ending Date:</label>
+    <input
+      type="date"
+      id="endingDate"
+      [(ngModel)]="client.endingDate"
+      name="endingDate"
+      required
+    />
+
+    <!-- VIP option (editable) -->
+    <label for="isVIP">VIP:</label>
+    <input
+      type="checkbox"
+      id="isVIP"
+      [(ngModel)]="client.isVIP"
+      name="isVIP"
+    />
+
+    <!-- Special Health Notes (editable) -->
+    <label for="specialHealthNotes">Special Health Notes:</label>
+    <textarea
+      id="specialHealthNotes"
+      [(ngModel)]="client.specialHealthNotes"
+      name="specialHealthNotes"
+    ></textarea>
+
+    <button type="submit" [disabled]="clientForm.invalid">Save</button>
+  </form>
+</div>
 
 <!-- Success Message -->
 <div *ngIf="successMessage" class="success-message">
-    {{ successMessage }}
+  {{ successMessage }}
 </div>
 
-  
-  <div *ngIf="!client">
-    <p>Client not found.</p>
-  </div>
-
-<!-- app.component.html -->
-<router-outlet></router-outlet>
-<app-floating-help-button></app-floating-help-button>
-  
+<div *ngIf="!client">
+  <p>Client not found.</p>
+</div>
