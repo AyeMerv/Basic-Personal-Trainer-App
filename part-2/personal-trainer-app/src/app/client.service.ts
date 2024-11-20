@@ -10,6 +10,18 @@ export class ClientService {
   getClients(): Client[] {
     return this.clients;
   }
+  
+  getClientById(id: string): Client | undefined {
+    return this.clients.find(client => client.clientID === id);
+  }
+
+  // Update client info
+  updateClient(updatedClient: Client): void {
+    const index = this.clients.findIndex(client => client.clientID === updatedClient.clientID);
+    if (index !== -1) {
+      this.clients[index] = updatedClient;
+    }
+  }
 
   addClient(client: Client): void {
     if (this.clients.some((c) => c.clientID === client.clientID)) {

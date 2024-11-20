@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ClientService } from '../client.service';
 import { Client } from '../client.model';
 
@@ -12,8 +13,12 @@ export class ClientListComponent {
   searchTerm: string = '';
   showVIPs: boolean = false;
 
-  constructor(private clientService: ClientService) {
+  constructor(private clientService: ClientService, private router: Router) {
     this.clients = this.clientService.getClients();
+  }
+
+  editClient(clientID: string): void {
+    this.router.navigate(['/edit-client', clientID]); // Navigate to the edit client page
   }
 
   deleteClient(clientID: string): void {

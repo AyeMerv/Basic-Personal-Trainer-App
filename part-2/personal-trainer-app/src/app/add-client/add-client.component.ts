@@ -9,6 +9,7 @@ import { Client } from '../client.model';
   styleUrls: ['./add-client.component.css'],
 })
 export class ClientFormComponent {
+  successMessage: string = '';
   constructor(private clientService: ClientService) {}
 
   addClient(form: NgForm): void {
@@ -18,12 +19,20 @@ export class ClientFormComponent {
         specialHealthNotes: form.value.specialHealthNotes || null,
       };
 
-      try {
-        this.clientService.addClient(newClient);
-        alert('Client added successfully!');
-        form.reset();
-      } catch (error: any) {
-        alert(error.message);
+      // Display confirmation dialog before proceeding
+      const confirmAdd = window.confirm('Are you sure you want to add this client?');
+
+      if (confirmAdd) {
+        try {
+          this.clientService.addClient(newClient);
+          alert('Client added successfully!');
+          form.reset();
+        } catch (error: any) {
+          alert(error.message);
+        }
+      } else {
+        // If the user cancels, we do nothing
+        alert('Client addition cancelled.');
       }
     } else {
       alert('Please fill out all required fields.');
