@@ -84,6 +84,7 @@ function displayClients(): void {
 // Function to delete a client
 function deleteClient(clientID: string): void {
   if (confirm("Are you sure you want to delete this client?")) {
+    // Remove the client from the array
     clients = clients.filter(client => client.clientID !== clientID);
     displayMessage("Client deleted successfully!", "success");
     displayClients();
@@ -120,11 +121,6 @@ function addClientFromForm(): void {
   const endingDate = (document.getElementById("endingDate") as HTMLInputElement).value.trim();
   const isVIP = (document.getElementById("isVIP") as HTMLInputElement).checked; // Checkbox for VIP status
   const specialHealthNotes = (document.getElementById("specialHealthNotes") as HTMLTextAreaElement).value.trim() || null;
-
-  // Log to check if values are correctly captured
-  console.log({
-    clientID, name, DOB, gender, fitnessProgram, contactInfo, joinedDate, endingDate, isVIP, specialHealthNotes
-  });
 
   // Check if any required field is empty (basic validation)
   if (!clientID || !name || !DOB || !gender || !fitnessProgram || !contactInfo || !joinedDate || !endingDate) {
