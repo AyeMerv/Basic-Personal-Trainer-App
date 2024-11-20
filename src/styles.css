@@ -65,6 +65,7 @@ button {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s;
+    position: sticky;
 }
 
 button:hover {
@@ -112,6 +113,27 @@ button:hover {
     color: #e74c3c;
     background-color: #fceaea;
     border: 1px solid #e74c3c;
+}
+
+/* Style the textarea for Special Health Notes */
+textarea {
+    width: 100%;
+    max-width: 100%;
+    height: 100px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Add margin to space out the fields */
+#vip-and-notes {
+    margin-top: 15px;
+}
+
+
+input[type="checkbox"] {
+    margin-top: 10px;
 }
 
 /* Responsive Styles */
