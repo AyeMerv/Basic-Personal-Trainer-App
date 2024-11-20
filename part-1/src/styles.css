@@ -1,174 +1,187 @@
 /* General Styles */
+/* Basic styles for the page, including font, background, and text colors */
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
+    font-family: Arial, sans-serif; /* Sets a clean and modern font */
+    margin: 20px; /* Adds spacing around the page */
+    background-color: #f4f4f4; /* Light gray background for better readability */
+    color: #333; /* Dark gray text for good contrast */
+    line-height: 1.6; /* Ensures proper spacing between lines */
 }
 
-/* Container */
+/* Container Styles */
+/* Styles for the main div container that wraps content */
 div {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Limits the width for better readability */
+    margin: 0 auto; /* Centers the container */
+    background-color: #fff; /* White background for contrast */
+    border-radius: 5px; /* Rounded corners for a modern look */
+    padding: 20px; /* Internal spacing inside the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 /* Header Styles */
+/* Styles for the main heading */
 h1 {
-    text-align: center;
-    color: #2c3e50;
-    margin-bottom: 20px;
+    text-align: center; /* Centers the heading text */
+    color: #2c3e50; /* Dark blue for emphasis */
+    margin-bottom: 20px; /* Adds spacing below the heading */
 }
 
 /* Input Field Styles */
+/* General styles for text inputs, date pickers, and select dropdowns */
 input[type="text"],
 input[type="date"],
 select {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0 15px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: border-box;
-    transition: border-color 0.3s;
+    width: 100%; /* Makes the input fields take full width */
+    padding: 10px; /* Adds internal spacing for better usability */
+    margin: 5px 0 15px; /* Adds spacing between fields */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 3px; /* Slightly rounded corners */
+    box-sizing: border-box; /* Ensures padding does not affect width */
+    transition: border-color 0.3s; /* Smooth transition effect on focus */
 }
 
+/* Focus Styles */
+/* Highlight the border when an input or select element is focused */
 input:focus,
 select:focus {
-    border-color: #3498db;
-    outline: none;
+    border-color: #3498db; /* Changes border to blue on focus */
+    outline: none; /* Removes the default browser outline */
+}
+
+/* Label Styles */
+/* Styles for labels to align with inputs */
+label {
+    margin-right: 10px; /* Adds spacing between label and input */
+    font-weight: bold; /* Bold text for labels */
+    color: #47a4e2; /* Light blue for consistent color scheme */
 }
 
 /* Checkbox Styles */
-label {
-    margin-right: 10px;
-    font-weight: bold;
-    color: #47a4e2;
-}
-
+/* Enhances visibility and interactivity of checkboxes */
 input[type="checkbox"] {
-    transform: scale(1.2);
-    margin-right: 10px;
+    transform: scale(1.2); /* Enlarges the checkbox slightly */
+    margin-right: 10px; /* Adds spacing after the checkbox */
 }
 
 /* Button Styles */
+/* General styles for buttons */
 button {
-    background-color: #44c26a;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-    position: sticky;
+    background-color: #44c26a; /* Green background for positive actions */
+    color: #fff; /* White text for contrast */
+    padding: 10px 20px; /* Adds internal spacing */
+    border: none; /* Removes default border */
+    border-radius: 3px; /* Rounded corners */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    font-size: 16px; /* Makes text readable */
+    transition: background-color 0.3s; /* Smooth transition on hover */
+    position: sticky; /* Ensures button remains visible on scroll (optional) */
 }
 
+/* Hover Effect for Buttons */
+/* Changes the background color when hovered */
 button:hover {
-    background-color: #2c7e54;
+    background-color: #2c7e54; /* Darker green for emphasis */
 }
 
 /* Client Card Styles */
+/* Styles for individual client cards */
 .client-card {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 15px;
-    margin-bottom: 15px;
-    background-color: #f9f9f9;
+    border: 1px solid #ccc; /* Light border for separation */
+    border-radius: 5px; /* Rounded corners */
+    padding: 15px; /* Internal spacing */
+    margin-bottom: 15px; /* Adds spacing between cards */
+    background-color: #f9f9f9; /* Light gray background for contrast */
 }
 
+/* Client Card Heading */
+/* Styles for the client's name and ID in the card */
 .client-card h3 {
-    margin: 0;
-    font-size: 18px;
-    color: #2c3e50;
+    margin: 0; /* Removes default margin */
+    font-size: 18px; /* Increases heading size slightly */
+    color: #2c3e50; /* Dark blue for consistency */
 }
 
+/* Client Card Text */
+/* Styles for the text inside client cards */
 .client-card p {
-    margin: 5px 0;
-    font-size: 14px;
-    color: #555;
+    margin: 5px 0; /* Adds spacing between paragraphs */
+    font-size: 14px; /* Slightly smaller text for details */
+    color: #555; /* Medium gray for secondary text */
 }
 
+/* Delete Button in Client Cards */
+/* Special styles for the delete button */
 .client-card button {
-    background-color: #e62929;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-    position: sticky;
+    background-color: #e62929; /* Red background for destructive action */
+    color: #fff; /* White text for contrast */
+    padding: 10px 20px; /* Adds internal spacing */
+    border: none; /* Removes default border */
+    border-radius: 3px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Readable text size */
+    transition: background-color 0.3s; /* Smooth hover effect */
 }
 
+/* Hover Effect for Delete Button */
 .client-card button:hover {
-    background-color: rgb(145, 25, 25);
+    background-color: rgb(145, 25, 25); /* Darker red for hover state */
 }
-
 
 /* Message Styles */
+/* Styles for the success or error messages */
 #message {
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 3px;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
+    margin: 10px 0; /* Adds spacing above and below the message */
+    padding: 10px; /* Internal spacing for better readability */
+    border-radius: 3px; /* Rounded corners for modern look */
+    font-size: 14px; /* Moderate text size */
+    font-weight: bold; /* Makes the message stand out */
+    text-align: center; /* Centers the message text */
 }
 
+/* Success Message Style */
 #message.success {
-    color: #27ae60;
-    background-color: #eafaf1;
-    border: 1px solid #27ae60;
+    color: #27ae60; /* Green text for success */
+    background-color: #eafaf1; /* Light green background */
+    border: 1px solid #27ae60; /* Green border for clarity */
 }
 
+/* Error Message Style */
 #message.error {
-    color: #e74c3c;
-    background-color: #fceaea;
-    border: 1px solid #e74c3c;
+    color: #e74c3c; /* Red text for errors */
+    background-color: #fceaea; /* Light red background */
+    border: 1px solid #e74c3c; /* Red border for clarity */
 }
 
-/* Style the textarea for Special Health Notes */
+/* Special Health Notes Textarea */
+/* Specific styles for the notes section */
 textarea {
-    width: 100%;
-    max-width: 100%;
-    height: 100px;
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-/* Add margin to space out the fields */
-#vip-and-notes {
-    margin-top: 15px;
-}
-
-
-input[type="checkbox"] {
-    margin-top: 10px;
+    width: 100%; /* Full width */
+    max-width: 100%; /* Prevents exceeding container width */
+    height: 100px; /* Sets height for visibility */
+    padding: 8px; /* Adds spacing inside */
+    border-radius: 4px; /* Rounded corners */
+    border: 1px solid #ccc; /* Light gray border */
+    box-sizing: border-box; /* Ensures padding doesn’t affect width */
 }
 
 /* Responsive Styles */
+/* Adjustments for smaller screens */
 @media (max-width: 600px) {
     body {
-        font-size: 14px;
+        font-size: 14px; /* Reduces text size for better fit */
     }
 
     div {
-        padding: 15px;
+        padding: 15px; /* Adjusts padding to fit smaller screens */
     }
 
     h1 {
-        font-size: 24px;
+        font-size: 24px; /* Scales down heading */
     }
 
     button {
-        width: 100%;
-        font-size: 14px;
+        width: 100%; /* Makes buttons span full width */
+        font-size: 14px; /* Reduces font size */
     }
 }
