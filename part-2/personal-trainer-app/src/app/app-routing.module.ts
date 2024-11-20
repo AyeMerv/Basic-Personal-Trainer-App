@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'client-list', pathMatch: 'full' }, // Redirect root to client-list
   { path: 'client-list', component: ClientListComponent }, // Client list route
   { path: 'add-client', component: ClientFormComponent }, // Add client route
-  { path: 'edit-client', component: EditClientComponent }, // Edit client route
+  { path: 'edit-client/:id', component: ClientFormComponent }, // Edit client route
   { path: 'help', component: HelpPageComponent }, // Help page route
   { path: '**', component: ErrorPageComponent }, // Wildcard route for 404
 ];

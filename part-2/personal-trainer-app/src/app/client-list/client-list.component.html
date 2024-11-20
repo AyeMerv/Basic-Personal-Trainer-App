@@ -1,11 +1,27 @@
-<div *ngFor="let client of clients" class="client-card">
-  <h3>{{ client.name }} (ID: {{ client.clientID }})</h3>
-  <p>DOB: {{ client.DOB }}</p>
-  <p>Gender: {{ client.gender }}</p>
-  <p>Program: {{ client.fitnessProgram }}</p>
-  <p>Contact: {{ client.contactInfo }}</p>
-  <p>Joined: {{ client.joinedDate }} - Ending: {{ client.endingDate }}</p>
-  <p>VIP: {{ client.isVIP ? 'Yes' : 'No' }}</p>
-  <p>Special Health Notes: {{ client.specialHealthNotes || 'N/A' }}</p>
-  <button (click)="deleteClient(client.clientID)">Delete</button>
+<div>
+  <!-- Search Bar -->
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    placeholder="Search clients by name..."
+    class="search-bar"
+  />
+
+  <!-- Toggle VIP Clients Button -->
+  <button (click)="toggleVIPs()">
+    {{ showVIPs ? 'Show All Clients' : 'Show Only VIP Clients' }}
+  </button>
+
+  <!-- Client List -->
+  <div *ngFor="let client of filteredClients" class="client-card">
+    <h3>{{ client.name }} (ID: {{ client.clientID }})</h3>
+    <p>DOB: {{ client.DOB }}</p>
+    <p>Gender: {{ client.gender }}</p>
+    <p>Program: {{ client.fitnessProgram }}</p>
+    <p>Contact: {{ client.contactInfo }}</p>
+    <p>Joined: {{ client.joinedDate }} - Ending: {{ client.endingDate }}</p>
+    <p>VIP: {{ client.isVIP ? 'Yes' : 'No' }}</p>
+    <p>Special Health Notes: {{ client.specialHealthNotes || 'N/A' }}</p>
+    <button (click)="deleteClient(client.clientID)">Delete</button>
+  </div>
 </div>
