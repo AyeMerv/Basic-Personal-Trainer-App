@@ -1,0 +1,22 @@
+/* about-page.component.css */
+.about-page {
+    padding: 20px;
+  }
+  
+  .about-page h1 {
+    font-size: 2rem;
+  }
+  
+  .about-page ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .about-page ul li {
+    margin-bottom: 10px;
+  }
+  
+  .about-page p {
+    font-size: 1.1rem;
+  }
+  

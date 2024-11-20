@@ -1,0 +1,14 @@
+/* Style for success message */
+.success-message {
+    color: green;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  
+  /* Style for error message */
+  .error-message {
+    color: red;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  

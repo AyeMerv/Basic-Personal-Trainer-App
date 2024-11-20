@@ -10,13 +10,16 @@ import { Client } from '../client.model';
 })
 export class ClientFormComponent {
   successMessage: string = '';
+  errorMessage: string = '';
+
   constructor(private clientService: ClientService) {}
 
-  addClient(form: NgForm): void {
-    if (form.valid) {
+  // Function to handle form submission
+  addClient(clientForm: NgForm): void {
+    if (clientForm.valid) {
       const newClient: Client = {
-        ...form.value,
-        specialHealthNotes: form.value.specialHealthNotes || null,
+        ...clientForm.value,
+        specialHealthNotes: clientForm.value.specialHealthNotes || null,
       };
 
       // Display confirmation dialog before proceeding
@@ -25,17 +28,20 @@ export class ClientFormComponent {
       if (confirmAdd) {
         try {
           this.clientService.addClient(newClient);
-          alert('Client added successfully!');
-          form.reset();
+          this.successMessage = 'Client added successfully!';
+          clientForm.reset();
+          this.errorMessage = ''; // Clear error message if any
         } catch (error: any) {
-          alert(error.message);
+          this.successMessage = ''; // Clear success message on error
+          this.errorMessage = error.message || 'An error occurred while adding the client.';
         }
       } else {
-        // If the user cancels, we do nothing
-        alert('Client addition cancelled.');
+        this.successMessage = ''; // Clear success message if cancelled
+        this.errorMessage = 'Client addition cancelled.';
       }
     } else {
-      alert('Please fill out all required fields.');
+      this.successMessage = ''; // Clear success message if form is invalid
+      this.errorMessage = 'Please fill out all required fields.';
     }
   }
 }

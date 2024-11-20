@@ -10,6 +10,8 @@ import { EditClientComponent } from './edit-client/edit-client.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { HelpPageComponent } from './help-page/help-page.component';
 import { HomeComponent } from './home/home.component';
+import { FloatingHelpButtonComponent } from './floating-help-button/floating-help-button.component';
+import { AboutPageComponent } from './about-page/about-page.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { HomeComponent } from './home/home.component';
     EditClientComponent,
     ErrorPageComponent,
     HelpPageComponent,
-    HomeComponent
+    HomeComponent,
+    FloatingHelpButtonComponent,
+    AboutPageComponent
   ],
   imports: [
     BrowserModule,
