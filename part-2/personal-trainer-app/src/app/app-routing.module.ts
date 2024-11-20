@@ -5,12 +5,13 @@ import { ClientFormComponent } from './add-client/add-client.component';
 import { EditClientComponent } from './edit-client/edit-client.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { HelpPageComponent } from './help-page/help-page.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'client-list', pathMatch: 'full' }, // Redirect root to client-list
+  { path: '', component: HomeComponent },  // Default route
   { path: 'client-list', component: ClientListComponent }, // Client list route
   { path: 'add-client', component: ClientFormComponent }, // Add client route
-  { path: 'edit-client/:id', component: ClientFormComponent }, // Edit client route
+  { path: 'edit-client', component: EditClientComponent }, // Edit client route
   { path: 'help', component: HelpPageComponent }, // Help page route
   { path: '**', component: ErrorPageComponent }, // Wildcard route for 404
 ];

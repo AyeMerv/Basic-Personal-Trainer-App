@@ -9,6 +9,7 @@ import { ClientFormComponent } from './add-client/add-client.component';
 import { EditClientComponent } from './edit-client/edit-client.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { HelpPageComponent } from './help-page/help-page.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HelpPageComponent } from './help-page/help-page.component';
     ClientFormComponent,
     EditClientComponent,
     ErrorPageComponent,
-    HelpPageComponent
+    HelpPageComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
