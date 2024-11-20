@@ -18,7 +18,7 @@
 
         <!-- Label for Date of Birth -->
         <label for="DOB">Date of Birth</label>
-        <input type="date" id="DOB" />
+        <input type="date" id="DOB" required />
         
         <label for="gender">Gender</label>
         <select id="gender" required>
@@ -52,13 +52,16 @@
         <label for="isVIP">VIP Client:</label>
         <input type="checkbox" id="isVIP" />
 
+        <!-- New Field for Special Health Notes -->
+        <label for="specialHealthNotes">Special Health Notes</label>
+        <textarea id="specialHealthNotes" placeholder="Enter any special health notes"></textarea>
+
         <!-- Add Client Button -->
         <button onclick="addClientFromForm()">Add Client</button>
     </div>
 
     <!-- Div for Displaying Clients -->
     <div id="app"></div>
-
 
     <!-- Script File -->
     <script src="../dist/app.js"></script>

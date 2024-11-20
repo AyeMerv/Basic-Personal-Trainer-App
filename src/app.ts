@@ -9,6 +9,7 @@ interface Client {
   joinedDate: string;
   endingDate: string;
   isVIP: boolean;
+  specialHealthNotes: string | null;
 }
 
 // Initialize an empty array to store clients
@@ -24,6 +25,7 @@ function addClient(
   contactInfo: string,
   joinedDate: string,
   endingDate: string,
+  specialHealthNotes: string | null,
   isVIP: boolean
 ): void {
   // Check if the clientID already exists
@@ -42,7 +44,8 @@ function addClient(
     contactInfo,
     joinedDate,
     endingDate,
-    isVIP
+    isVIP,
+    specialHealthNotes
   };
 
   // Add the new client to the array
@@ -70,6 +73,7 @@ function displayClients(): void {
         <p>Contact: ${client.contactInfo}</p>
         <p>Joined: ${client.joinedDate} - Ending: ${client.endingDate}</p>
         <p>VIP: ${client.isVIP ? "Yes" : "No"}</p>
+        <p>Special Health Notes: ${client.specialHealthNotes || "N/A"}</p>
         <button onclick="deleteClient('${client.clientID}')">Delete</button>
       </div>
     `;
@@ -101,27 +105,36 @@ function displayMessage(message: string, type: "success" | "error"): void {
 
 // Function to add a client from form input
 function addClientFromForm(): void {
-  const clientID = (document.getElementById("clientID") as HTMLInputElement).value;
-  const name = (document.getElementById("name") as HTMLInputElement).value;
-  const DOB = (document.getElementById("DOB") as HTMLInputElement).value;
+  // Retrieve values from the form fields
+  const clientID = (document.getElementById("clientID") as HTMLInputElement).value.trim();
+  const name = (document.getElementById("name") as HTMLInputElement).value.trim();
+  const DOB = (document.getElementById("DOB") as HTMLInputElement).value.trim();
   const gender = (document.getElementById("gender") as HTMLSelectElement).value as "Female" | "Male" | "Unspecified";
-  const fitnessProgram = (document.getElementById("fitnessProgram") as HTMLSelectElement).value as
-    | "fat loss"
-    | "senior fitness"
-    | "muscle gain"
-    | "pre/postnatal fitness"
-    | "contest preparation"
-    | "overall fitness";
-  const contactInfo = (document.getElementById("contactInfo") as HTMLInputElement).value;
-  const joinedDate = (document.getElementById("joinedDate") as HTMLInputElement).value;
-  const endingDate = (document.getElementById("endingDate") as HTMLInputElement).value;
-  const isVIP = (document.getElementById("isVIP") as HTMLInputElement).checked;
 
-  if (!clientID || !name || !DOB || !contactInfo || !joinedDate || !endingDate) {
-    displayMessage("Please fill out all required fields!", "error");
+  // Retrieve the value of fitness program, contact info, join date, end date, and VIP status from the form
+  const fitnessProgram = (document.getElementById("fitnessProgram") as HTMLSelectElement).value as 
+      "fat loss" | "senior fitness" | "muscle gain" | "pre/postnatal fitness" | "contest preparation" | "overall fitness";
+  
+  const contactInfo = (document.getElementById("contactInfo") as HTMLInputElement).value.trim();
+  const joinedDate = (document.getElementById("joinedDate") as HTMLInputElement).value.trim();
+  const endingDate = (document.getElementById("endingDate") as HTMLInputElement).value.trim();
+  const isVIP = (document.getElementById("isVIP") as HTMLInputElement).checked; // Checkbox for VIP status
+  const specialHealthNotes = (document.getElementById("specialHealthNotes") as HTMLTextAreaElement).value.trim() || null;
+
+  // Log to check if values are correctly captured
+  console.log({
+    clientID, name, DOB, gender, fitnessProgram, contactInfo, joinedDate, endingDate, isVIP, specialHealthNotes
+  });
+
+  // Check if any required field is empty (basic validation)
+  if (!clientID || !name || !DOB || !gender || !fitnessProgram || !contactInfo || !joinedDate || !endingDate) {
+    displayMessage("Please fill all the required fields!", "error");
     return;
   }
 
-  addClient(clientID, name, DOB, gender, fitnessProgram, contactInfo, joinedDate, endingDate, isVIP);
-}
+  // Call addClient with the correct values from the form
+  addClient(clientID, name, DOB, gender, fitnessProgram, contactInfo, joinedDate, endingDate, specialHealthNotes, isVIP);
 
+  // Refresh the client list display
+  displayClients();
+}

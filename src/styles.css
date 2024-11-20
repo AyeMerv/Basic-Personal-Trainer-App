@@ -1,0 +1,134 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container */
+div {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styles */
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Input Field Styles */
+input[type="text"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+input:focus,
+select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Checkbox Styles */
+label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2);
+    margin-right: 10px;
+}
+
+/* Button Styles */
+button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Client Card Styles */
+.client-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+}
+
+.client-card h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+.client-card p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Message Styles */
+#message {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#message.success {
+    color: #27ae60;
+    background-color: #eafaf1;
+    border: 1px solid #27ae60;
+}
+
+#message.error {
+    color: #e74c3c;
+    background-color: #fceaea;
+    border: 1px solid #e74c3c;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+
+    div {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    button {
+        width: 100%;
+        font-size: 14px;
+    }
+}
