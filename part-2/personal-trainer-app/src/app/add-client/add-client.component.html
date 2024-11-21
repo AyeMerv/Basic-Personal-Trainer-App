@@ -1,7 +1,16 @@
 <form #clientForm="ngForm" (ngSubmit)="addClient(clientForm)">
   <!-- Client ID -->
   <label for="clientID">Client ID:</label>
-  <input type="text" id="clientID" name="clientID" ngModel required pattern="^[A-Za-z0-9]+$" #clientID="ngModel" />
+  <input 
+    type="text" 
+    id="clientID" 
+    name="clientID" 
+    ngModel 
+    required 
+    pattern="^[A-Za-z0-9]+$" 
+    #clientID="ngModel" 
+  />
+  <!-- Validation messages for Client ID -->
   <div *ngIf="clientForm.controls['clientID']?.invalid && clientForm.controls['clientID']?.touched">
     <small *ngIf="clientForm.controls['clientID']?.errors?.['required']">Client ID is required.</small>
     <small *ngIf="clientForm.controls['clientID']?.errors?.['pattern']">Client ID must only contain letters and numbers.</small>
@@ -9,7 +18,16 @@
 
   <!-- Name -->
   <label for="name">Name:</label>
-  <input type="text" id="name" name="name" ngModel required pattern="^[A-Za-z ]+$" #name="ngModel" />
+  <input 
+    type="text" 
+    id="name" 
+    name="name" 
+    ngModel 
+    required 
+    pattern="^[A-Za-z ]+$" 
+    #name="ngModel" 
+  />
+  <!-- Validation messages for Name -->
   <div *ngIf="clientForm.controls['name']?.invalid && clientForm.controls['name']?.touched">
     <small *ngIf="clientForm.controls['name']?.errors?.['required']">Name is required.</small>
     <small *ngIf="clientForm.controls['name']?.errors?.['pattern']">Name cannot contain numbers or special characters.</small>
@@ -17,43 +35,64 @@
 
   <!-- Date of Birth -->
   <label for="DOB">Date of Birth:</label>
-  <input type="date" id="DOB" name="DOB" ngModel required #DOB="ngModel" />
+  <input 
+    type="date" 
+    id="DOB" 
+    name="DOB" 
+    ngModel 
+    required 
+    #DOB="ngModel" 
+  />
+  <!-- Validation messages for Date of Birth -->
   <div *ngIf="clientForm.controls['DOB']?.invalid && clientForm.controls['DOB']?.touched">
     <small *ngIf="clientForm.controls['DOB']?.errors?.['required']">Date of Birth is required.</small>
   </div>
 
-<!-- Email (Contact Info) -->
-<label for="contactInfo">Email:</label>
-<input
-  type="email"
-  id="contactInfo"
-  name="contactInfo"
-  ngModel
-  required
-  email
-  #contactInfo="ngModel"
-/>
-<div *ngIf="contactInfo.invalid && contactInfo.touched">
-  <small *ngIf="contactInfo.errors?.['required']">Email is required.</small>
-  <small *ngIf="contactInfo.errors?.['email']">Please enter a valid email address.</small>
-</div>
-
+  <!-- Email (Contact Info) -->
+  <label for="contactInfo">Email:</label>
+  <input 
+    type="email" 
+    id="contactInfo" 
+    name="contactInfo" 
+    ngModel 
+    required 
+    email 
+    #contactInfo="ngModel" 
+  />
+  <!-- Validation messages for Email -->
+  <div *ngIf="contactInfo.invalid && contactInfo.touched">
+    <small *ngIf="contactInfo.errors?.['required']">Email is required.</small>
+    <small *ngIf="contactInfo.errors?.['email']">Please enter a valid email address.</small>
+  </div>
 
   <!-- Gender -->
   <label for="gender">Gender:</label>
-  <select id="gender" name="gender" ngModel required #gender="ngModel">
+  <select 
+    id="gender" 
+    name="gender" 
+    ngModel 
+    required 
+    #gender="ngModel"
+  >
     <option value="" disabled>Select Gender</option>
     <option value="Female">Female</option>
     <option value="Male">Male</option>
     <option value="Unspecified">Unspecified</option>
   </select>
+  <!-- Validation messages for Gender -->
   <div *ngIf="clientForm.controls['gender']?.invalid && clientForm.controls['gender']?.touched">
     <small *ngIf="clientForm.controls['gender']?.errors?.['required']">Gender is required.</small>
   </div>
 
   <!-- Fitness Program -->
   <label for="fitnessProgram">Fitness Program:</label>
-  <select id="fitnessProgram" name="fitnessProgram" ngModel required #fitnessProgram="ngModel">
+  <select 
+    id="fitnessProgram" 
+    name="fitnessProgram" 
+    ngModel 
+    required 
+    #fitnessProgram="ngModel"
+  >
     <option value="" disabled>Select Program</option>
     <option value="fat loss">Fat Loss</option>
     <option value="senior fitness">Senior Fitness</option>
@@ -62,33 +101,59 @@
     <option value="contest preparation">Contest Preparation</option>
     <option value="overall fitness">Overall Fitness</option>
   </select>
+  <!-- Validation messages for Fitness Program -->
   <div *ngIf="clientForm.controls['fitnessProgram']?.invalid && clientForm.controls['fitnessProgram']?.touched">
     <small *ngIf="clientForm.controls['fitnessProgram']?.errors?.['required']">Fitness Program is required.</small>
   </div>
 
   <!-- Joining Date -->
   <label for="joinedDate">Join Date:</label>
-  <input type="date" id="joinedDate" name="joinedDate" ngModel required #joinedDate="ngModel" />
+  <input 
+    type="date" 
+    id="joinedDate" 
+    name="joinedDate" 
+    ngModel 
+    required 
+    #joinedDate="ngModel" 
+  />
+  <!-- Validation messages for Join Date -->
   <div *ngIf="clientForm.controls['joinedDate']?.invalid && clientForm.controls['joinedDate']?.touched">
-  <small *ngIf="clientForm.controls['joinedDate']?.errors?.['required']">Joining Date is required.</small>
+    <small *ngIf="clientForm.controls['joinedDate']?.errors?.['required']">Joining Date is required.</small>
   </div>
 
-  
   <!-- Ending Date -->
   <label for="endingDate">End Date:</label>
-  <input type="date" id="endingDate" name="endingDate" ngModel required #endingDate="ngModel" />
+  <input 
+    type="date" 
+    id="endingDate" 
+    name="endingDate" 
+    ngModel 
+    required 
+    #endingDate="ngModel" 
+  />
+  <!-- Validation messages for End Date -->
   <div *ngIf="clientForm.controls['endingDate']?.invalid && clientForm.controls['endingDate']?.touched">
     <small *ngIf="clientForm.controls['endingDate']?.errors?.['required']">Ending Date is required.</small>
   </div>
 
   <!-- VIP -->
   <label for="isVIP">VIP:</label>
-  <input type="checkbox" id="isVIP" name="isVIP" ngModel />
+  <input 
+    type="checkbox" 
+    id="isVIP" 
+    name="isVIP" 
+    ngModel 
+  />
 
   <!-- Special Health Notes -->
   <label for="specialHealthNotes">Special Health Notes:</label>
-  <textarea id="specialHealthNotes" name="specialHealthNotes" ngModel></textarea>
+  <textarea 
+    id="specialHealthNotes" 
+    name="specialHealthNotes" 
+    ngModel
+  ></textarea>
 
+  <!-- Submit Button -->
   <button type="submit">Add Client</button>
 </form>
 
@@ -97,6 +162,6 @@
   {{ successMessage }}
 </div>
 
-<!-- app.component.html -->
+<!-- Floating button component -->
 <router-outlet></router-outlet>
 <app-floating-help-button></app-floating-help-button>

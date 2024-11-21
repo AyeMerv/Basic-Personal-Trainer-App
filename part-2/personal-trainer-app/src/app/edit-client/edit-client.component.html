@@ -1,19 +1,22 @@
 <div *ngIf="client">
+  <!-- Header for editing the client -->
   <h2>Edit Client: {{ client.name }}</h2>
 
+  <!-- Form for editing the client -->
   <form #clientForm="ngForm" (ngSubmit)="saveClient(clientForm)">
-    <!-- Display Client ID and Name (read-only) -->
+    <!-- Client ID (Read-only) -->
     <label for="clientID">Client ID:</label>
     <input id="clientID" [value]="client.clientID" readonly />
 
+    <!-- Client Name (Read-only) -->
     <label for="name">Name:</label>
     <input id="name" [(ngModel)]="client.name" name="name" readonly />
 
-    <!-- Display DOB (read-only) -->
+    <!-- Client DOB (Read-only) -->
     <label for="DOB">Date of Birth:</label>
     <input type="date" id="DOB" [(ngModel)]="client.DOB" name="DOB" readonly />
 
-    <!-- Fitness Program (editable) -->
+    <!-- Fitness Program (Editable) -->
     <label for="fitnessProgram">Fitness Program:</label>
     <select
       id="fitnessProgram"
@@ -30,7 +33,7 @@
       <option value="overall fitness">Overall Fitness</option>
     </select>
 
-    <!-- Contact Info (editable) -->
+    <!-- Contact Info (Editable) -->
     <label for="contactInfo">Email:</label>
     <input
       type="email"
@@ -41,12 +44,13 @@
       email
       #contactInfo="ngModel"
     />
+    <!-- Validation messages for contact info -->
     <div *ngIf="contactInfo.invalid && contactInfo.touched">
       <small *ngIf="contactInfo.errors?.['required']">Email is required.</small>
       <small *ngIf="contactInfo.errors?.['email']">Please enter a valid email address.</small>
     </div>
 
-    <!-- Ending Date (editable) -->
+    <!-- Ending Date (Editable) -->
     <label for="endingDate">Ending Date:</label>
     <input
       type="date"
@@ -56,7 +60,7 @@
       required
     />
 
-    <!-- VIP option (editable) -->
+    <!-- VIP Option (Editable) -->
     <label for="isVIP">VIP:</label>
     <input
       type="checkbox"
@@ -65,7 +69,7 @@
       name="isVIP"
     />
 
-    <!-- Special Health Notes (editable) -->
+    <!-- Special Health Notes (Editable) -->
     <label for="specialHealthNotes">Special Health Notes:</label>
     <textarea
       id="specialHealthNotes"
@@ -73,6 +77,7 @@
       name="specialHealthNotes"
     ></textarea>
 
+    <!-- Save Button -->
     <button type="submit" [disabled]="clientForm.invalid">Save</button>
   </form>
 </div>
@@ -82,6 +87,7 @@
   {{ successMessage }}
 </div>
 
+<!-- Message when client is not found -->
 <div *ngIf="!client">
   <p>Client not found.</p>
 </div>

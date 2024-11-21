@@ -8,25 +8,38 @@
   />
 
   <!-- Toggle VIP Clients Button -->
-  <button (click)="toggleVIPs()">
+  <button (click)="toggleVIPs()"> <!-- Button click event bound to toggleVIPs() method -->
+    <!-- Conditional text based on the state of showVIPs -->
     {{ showVIPs ? 'Show All Clients' : 'Show Only VIP Clients' }}
   </button>
 
   <!-- Client List -->
+  <!-- Loop through the filteredClients array to display each client -->
   <div *ngFor="let client of filteredClients" class="client-card">
-    <h3>{{ client.name }} (ID: {{ client.clientID }})</h3>
-    <p>DOB: {{ client.DOB }}</p>
-    <p>Gender: {{ client.gender }}</p>
-    <p>Program: {{ client.fitnessProgram }}</p>
-    <p>Contact: {{ client.contactInfo }}</p>
-    <p>Joined: {{ client.joinedDate }} - Ending: {{ client.endingDate }}</p>
-    <p>VIP: {{ client.isVIP ? 'Yes' : 'No' }}</p>
-    <p>Special Health Notes: {{ client.specialHealthNotes || 'N/A' }}</p>
-    <button (click)="editClient(client.clientID)">Edit</button>
-    <button (click)="deleteClient(client.clientID)">Delete</button>
+    <!-- Client Details -->
+    <h3>
+      {{ client.name }} (ID: {{ client.clientID }}) <!-- Display client's name and ID -->
+    </h3>
+    <p>DOB: {{ client.DOB }}</p> <!-- Display client's date of birth -->
+    <p>Gender: {{ client.gender }}</p> <!-- Display client's gender -->
+    <p>Program: {{ client.fitnessProgram }}</p> <!-- Display client's fitness program -->
+    <p>Contact: {{ client.contactInfo }}</p> <!-- Display client's contact information -->
+    <p>
+      Joined: {{ client.joinedDate }} - Ending: {{ client.endingDate }}
+      <!-- Display client's membership start and end dates -->
+    </p>
+    <p>VIP: {{ client.isVIP ? 'Yes' : 'No' }}</p> <!-- Display if the client is VIP -->
+    <p>
+      Special Health Notes:
+      {{ client.specialHealthNotes || 'N/A' }} <!-- Display health notes or 'N/A' if empty -->
+    </p>
+
+    <!-- Edit and Delete Buttons -->
+    <button (click)="editClient(client.clientID)">Edit</button> <!-- Navigate to edit page -->
+    <button (click)="deleteClient(client.clientID)">Delete</button> <!-- Delete the client -->
   </div>
 </div>
 
-<!-- app.component.html -->
-<router-outlet></router-outlet>
-<app-floating-help-button></app-floating-help-button>
+<!-- App Routing and Floating Help Button -->
+<router-outlet></router-outlet> <!-- Render the active routed component -->
+<app-floating-help-button></app-floating-help-button> <!-- Custom floating help button -->
