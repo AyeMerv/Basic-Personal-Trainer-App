@@ -18,7 +18,6 @@ export class ClientFormComponent {
 
   /**
    * Function to handle the submission of the client form
-   * @param clientForm - The form being submitted, passed as an argument
    */
   addClient(clientForm: NgForm): void {
     // Check if the form is valid
